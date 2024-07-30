@@ -32,26 +32,33 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
+     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.tutoru.in',
+    'https://tutoru.in',
+    'https://tutoru-backend.vercel.app',
+]
+
+# Alternatively, specify exact origins
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
-    'https://www.tutoru.in',  # Your deployed frontend domain
-    'https://tutoru.in', 
-    'https://tutoru-backend.vercel.app',# Your deployed frontend domain
+    'https://www.tutoru.in',
+    'https://tutoru.in',
+    'https://tutoru-backend.vercel.app',
 ]
+
 
 
 ROOT_URLCONF = "tutorU.urls"
