@@ -12,7 +12,7 @@ SECRET_KEY = "django-insecure--9+!nj^x2uj^7f5)wkbj=52(6fx%+i8+nb^y_w=f#+b^$1dmka
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in']
+ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', 'https://tutoru-backend.vercel.app']
 
 
 # Application definition
@@ -48,7 +48,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
     'https://www.tutoru.in',  # Your deployed frontend domain
-    'https://tutoru.in',      # Your deployed frontend domain
+    'https://tutoru.in', 
+    'https://tutoru-backend.vercel.app',# Your deployed frontend domain
 ]
 
 
