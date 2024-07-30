@@ -3,12 +3,13 @@
   "builds": [
     {
       "src": "tutorU/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "tutorU/wsgi.py" }
+    {
+      "src": "/(.*)",
+      "dest": "tutorU/wsgi.py"
+    }
   ]
 }
