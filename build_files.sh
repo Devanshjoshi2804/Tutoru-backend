@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Install dependencies
-pip install -r new_requirements.txt
+# Exit immediately if a command exits with a non-zero status
+set -e
 
-# Run migrations
-python manage.py migrate
+# Install dependencies
+pip install -r requirements.txt
 
 # Collect static files
 python manage.py collectstatic --noinput
