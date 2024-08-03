@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import dj_database_url
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,19 +9,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--9+!nj^x2uj^7f5)wkbj=52(6fx%+i8+nb^y_w=f#+b^$1dmka"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 
 ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'tutoru-backend.vercel.app']
 
-
-
-
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -35,7 +31,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
@@ -43,18 +39,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://www.tutoru.in',
-    'https://tutoru.in',
-    'https://tutoru-backend.vercel.app',
-]
-
-# Alternatively, specify exact origins
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://www.tutoru.in',
@@ -62,18 +50,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://tutoru-backend.vercel.app',
 ]
 
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'https://www.tutoru.in',
-    'https://tutoru.in',
-    'https://tutoru-backend.vercel.app',
-    
-]
-
-
-
-
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
 ROOT_URLCONF = "tutorU.urls"
 
@@ -99,17 +76,10 @@ WSGI_APPLICATION = "tutorU.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.ietnomogkudxgmhxaynh',
-        'PASSWORD': 'oPnjn4ceyooQ67IN',
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',
-        'PORT': '6543',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres.ietnomogkudxgmhxaynh:oPnjn4ceyooQ67IN@aws-0-ap-south-1.pooler.supabase.com:6543/postgres'
+    )
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
