@@ -12,7 +12,8 @@ SECRET_KEY = "django-insecure--9+!nj^x2uj^7f5)wkbj=52(6fx%+i8+nb^y_w=f#+b^$1dmka
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'https://tutoru-backend.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'tutoru-backend.vercel.app','localhost:3000']
+
 
 
 # Application definition
@@ -31,26 +32,36 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
+     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://localhost:3001',
-    'https://www.tutoru.in',  # Your deployed frontend domain
+    'https://www.tutoru.in',
     'https://tutoru.in',
-    'https://tutoru-backend.vercel.app',# Your deployed frontend domain
+    'https://tutoru-backend.vercel.app',
 ]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'https://www.tutoru.in',
+    'https://tutoru.in',
+    'https://tutoru-backend.vercel.app',
+    
+]
+
+
 
 
 ROOT_URLCONF = "tutorU.urls"
@@ -77,11 +88,16 @@ WSGI_APPLICATION = "tutorU.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tutoru',
+        'USER': 'devansh',
+        'PASSWORD': 'devanshj1',
+        'HOST': 'localhost',  # Or your MySQL server's IP address
+        'PORT': '3306',       # Default MySQL port
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

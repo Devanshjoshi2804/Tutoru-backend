@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import TutorRequestView
+from .views import TutorRequestCreateView
 
 urlpatterns = [
-    path('api/tutor-request/', TutorRequestView.as_view(), name='tutor-request'),
+    path('api/tutor-request/', TutorRequestCreateView.as_view(), name='tutor-request'),
 ]

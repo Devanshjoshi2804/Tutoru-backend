@@ -1,20 +1,4 @@
 {
-<<<<<<< HEAD
-    "version": 2,
-    "builds": [
-      {
-        "src": "tutorU/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb" }
-      }
-    ],
-    "routes": [
-      { "src": "/static/(.*)", "dest": "/static/$1" },
-      { "src": "/(.*)", "dest": "tutorU/wsgi.py" }
-    ]
-  }
-  
-=======
   "version": 2,
   "builds": [
     {
