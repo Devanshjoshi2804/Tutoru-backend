@@ -1,16 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "tutorU/wsgi.py",
-      "use": "@vercel/python"
-    }
+    { "src": "manage.py", "use": "@vercel/python" },
+    { "src": "build_files.sh", "use": "@vercel/static-build", "config": { "distDir": "staticfiles" } }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "tutorU/wsgi.py"
-    }
+    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
+    { "src": "/(.*)", "dest": "tutorU/wsgi.py" }
   ]
 }
->>>>>>> 8264911f3c7fcd0e52313d49b330177c3d17cf88
