@@ -3,6 +3,11 @@
 # Activate virtual environment
 source venv/activate
 
+#!/bin/bash
+
+pip install --upgrade pip
+
+
 # Install dependencies
 pip install -r new_requirements.txt
 
