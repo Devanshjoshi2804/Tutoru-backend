@@ -13,11 +13,9 @@ SECRET_KEY = "django-insecure--9+!nj^x2uj^7f5)wkbj=52(6fx%+i8+nb^y_w=f#+b^$1dmka
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'tutoru-backend.vercel.app','localhost:3000']
-=======
+
 ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'tutoru-backend.vercel.app']
->>>>>>> origin/main
+
 
 
 
@@ -44,10 +42,6 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-<<<<<<< HEAD
-=======
-    'corsheaders.middleware.CorsMiddleware',
->>>>>>> origin/main
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
 ]
@@ -63,17 +57,12 @@ CSRF_TRUSTED_ORIGINS = [
 # Alternatively, specify exact origins
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-<<<<<<< HEAD
-=======
-    'http://localhost:3001',
->>>>>>> origin/main
     'https://www.tutoru.in',
     'https://tutoru.in',
     'https://tutoru-backend.vercel.app',
 ]
 
 
-<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
     'https://www.tutoru.in',
@@ -84,8 +73,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 
-=======
->>>>>>> origin/main
+
 
 ROOT_URLCONF = "tutorU.urls"
 
@@ -112,14 +100,15 @@ WSGI_APPLICATION = "tutorU.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tutoru',
-        'USER': 'devansh',
-        'PASSWORD': 'devanshj1',
-        'HOST': 'localhost',  # Or your MySQL server's IP address
-        'PORT': '3306',       # Default MySQL port
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.ietnomogkudxgmhxaynh',
+        'PASSWORD': 'oPnjn4ceyooQ67IN',
+        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',
+        'PORT': '6543',
     }
 }
+
 
 
 # Password validation
