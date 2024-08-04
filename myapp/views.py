@@ -7,6 +7,12 @@ from .models import TutorRequest
 from .serializers import TutorRequestSerializer
 
 from rest_framework import generics
+# myapp/views.py
+from django.http import JsonResponse
+
+def tutor_request(request):
+    # Your logic here
+    return JsonResponse({"message": "Tutor request received"})
 
 class TutorRequestCreateView(generics.CreateAPIView):
     queryset = TutorRequest.objects.all()
