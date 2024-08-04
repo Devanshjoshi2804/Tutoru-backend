@@ -1,7 +1,6 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from .views import TutorRequestCreateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('myapp/api/', include('myapp.urls')),  # This should point to your app's URL configuration
+    path('api/tutor-request/', TutorRequestCreateView.as_view(), name='tutor-request'),
 ]
