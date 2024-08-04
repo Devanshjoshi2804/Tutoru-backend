@@ -12,3 +12,15 @@
     { "src": "/(.*)", "dest": "tutorU/wsgi.py" }
   ]
 }
+{
+  "rewrites": [
+    {
+      "source": "/admin/(.*)",
+      "destination": "/api/admin/$1"
+    },
+    {
+      "source": "/myapp/api/(.*)",
+      "destination": "/api/myapp/api/$1"
+    }
+  ]
+}
