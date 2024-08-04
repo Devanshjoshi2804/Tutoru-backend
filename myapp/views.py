@@ -13,8 +13,12 @@ from django.http import JsonResponse
 @csrf_exempt
 def tutor_request(request):
     if request.method == 'POST':
-        # Handle your request here
-        return JsonResponse({'message': 'Request received'}, status=201)
+        try:
+            data = json.loads(request.body)
+            # Process your data here
+            return JsonResponse({'message': 'Request received'}, status=201)
+        except json.JSONDecodeError:
+            return JsonResponse({'message': 'Invalid JSON'}, status=400)
     return JsonResponse({'message': 'Invalid request method'}, status=405)
 
 class TutorRequestCreateView(generics.CreateAPIView):
