@@ -56,7 +56,12 @@ CORS_ALLOWED_ORIGINS = [
     'https://tutoru-backend.vercel.app',
 ]
 
-CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.tutoru.in',
+    'https://tutoru.in',
+    'http://localhost:3000',  # Add local dev server if needed
+]
+
 
 ROOT_URLCONF = "tutorU.urls"
 
