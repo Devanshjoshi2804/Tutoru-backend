@@ -1,6 +1,11 @@
 from django.urls import path
-from .views import TutorRequestCreateView
+from . import views
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('api/tutor-request/', TutorRequestCreateView.as_view(), name='tutor-request'),
+    path('tutor-request/', views.tutor_request, name='tutor_request'),
+    # Add other paths as needed
+    path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),
 ]
