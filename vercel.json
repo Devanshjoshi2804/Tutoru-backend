@@ -9,19 +9,8 @@
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/admin/(.*)", "dest": "/api/admin/$1" },
+    { "src": "/myapp/api/(.*)", "dest": "/api/myapp/api/$1" },
     { "src": "/(.*)", "dest": "tutorU/wsgi.py" }
-  ]
-}
-{
-
-  "rewrites": [
-    {
-      "source": "/admin/(.*)",
-      "destination": "/api/admin/$1"
-    },
-    {
-      "source": "/myapp/api/(.*)",
-      "destination": "/api/myapp/api/$1"
-    }
   ]
 }
