@@ -50,17 +50,14 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
+    'http://localhost:3000',  # Localhost for development
     'https://www.tutoru.in',
     'https://tutoru.in',
     'https://tutoru-backend.vercel.app',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://www.tutoru.in',
-    'https://tutoru.in',
-    'http://localhost:3000',  # Add local dev server if needed
-]
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
+
 
 
 ROOT_URLCONF = "tutorU.urls"
