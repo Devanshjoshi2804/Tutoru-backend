@@ -20,7 +20,7 @@ DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 
 
 
-ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'api.tutoru.in', 'tutoru-backend.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'admin.tutoru.in', 'tutoru-backend.vercel.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -54,7 +54,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://www.tutoru.in',
     'https://tutoru.in',
     'https://tutoru-backend.vercel.app',
-    'api.tutoru.in',
+    'admin.tutoru.in',
 ]
 
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
