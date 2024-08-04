@@ -18,16 +18,7 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 
-REST_FRAMEWORK = {
-    ...
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    ),
-    ...
-}
+
 
 ALLOWED_HOSTS = ['.vercel.app', 'www.tutoru.in', 'tutoru.in', '127.0.0.1', 'tutoru-backend.vercel.app']
 
